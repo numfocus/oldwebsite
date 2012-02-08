@@ -1,0 +1,259 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*
+{
+	font-family:sans-serif;
+}
+
+#subhead
+{
+	font-size: 25pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: black;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+body
+{
+	background-color: #ffefd5;
+}
+
+p
+{
+	text-align: center;
+}
+
+a:hover 
+{
+	text-decoration: underline;
+}
+
+#topspan_wrap
+{
+	border 1px solid red;
+/*	width: 644px;
+	margin-left: auto;
+	margin-right: auto;*/
+	text-align: center;
+	text-justify: center;
+}
+
+
+.center
+{
+	display: block;
+    border-style: solid;
+    border-color: black;
+    margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    border-width: 2px;
+}
+
+.navlist
+{
+ 	list-style: none;
+    margin-top: 10px;
+}
+
+
+.navlist li
+{
+	display:none;
+	background-color: #3366ff;
+	color: black;
+	display:inline;
+	margin: 0px;
+}
+
+.navlist a
+{
+	color: #D0E01B;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.content
+{
+    overflow: auto;
+	padding-left: 0px;
+	background-color: white;
+	border-style: solid;
+    border-color: black;
+    border-width:1px;
+    padding-bottom:22px;
+    width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.copy
+{
+    list-style: none;
+	padding-left: 0px;
+	background-color: white;
+	border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    margin-bottom: 70px;
+    width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+li 
+{
+	text-align:left;
+	font-size:12pt;
+	margin: 5px 5px 5px 5px;
+}
+
+.box
+{
+	margin-top: 10px;
+}
+
+#apply
+{
+	text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+header
+{
+	font-weight: bold;
+	font-size: x-large;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+}
+
+.projpic
+{
+	display:block;
+	float:left;
+	border: 1px solid #d0d0d0;
+	padding-top: 2px;
+	margin-right: 4px;
+	margin-left: 2px;
+}
+
+.projdesc
+{
+	font-size: small;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: justify;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.name
+{
+	background-color: #3366ff;
+	margin: 0px 0px 5px 0px;
+	color: white;
+	padding-left: 4px;
+	padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.name a:link
+{
+    color: white;
+	text-decoration: none;
+}
+
+.name a:visited
+{
+    color: white;
+}
+
+.bio
+{
+	font-size: small;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: justify;
+	padding-left: 5px;
+	padding-right: 5px;
+    fixed width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headshot
+{
+	margin-right: 10px;
+	margin-bottom: 5px;
+	margin-top: 3px;
+}
+
+footer
+{
+	text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+footer a:link:
+{
+    color: #3366ff;
+    text-decoration: none;
+}
