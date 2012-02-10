@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Hosting information: TBD-->
+<head>
+<meta charset="UTF-8" />
+<title>NumFOCUS - Numpy Foundation for Open Code for Usable Science</title>
+<!--Centered or as is?  Can't remember how to do this, exactly.  Images in general.  I like it better uncentered.-->
+<!--Not sure what to put in the description.  Blank for now.-->
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="color.css" />
+</head>
+
+<body>
+
+
+	<header>
+		<div id="topspan_wrap">
+		<div id="topspan">
+			<img class="center" src="img/PastedGraphic-1.pdf" alt="NumFOCUS logo" />
+			<br/>
+			<span id="subhead">NumPy Foundation for Open Code for Usable Science</span>
+		</div>
+		</div>
+		<ul class="navlist">
+			<li>
+			<a href="numfocus.html">Home</a>
+			</li>
+			<li>
+			<a href="projects.html">Projects</a>
+			</li>
+			<li>
+			<a href="directors.html">Directors</a>
+			</li>
+			<li>
+			<a href="membership.html">Membership</a>
+		</ul>
+	</header>
+
+
+	<form oninput="total.value = (nights.valueAsNumber * 99) + 
+ ((guests.valueAsNumber - 1) * 10)">
+
+  <label>Full name:</label>
+  <input type="text" id="full_name" name="full_name" required>
+
+  <label>Email address:</label>
+  <input type="email" id="email_addr" name="email_addr" required>
+
+  <label>Repeat email address:</label>
+  <input type="email" id="email_addr_repeat" name="email_addr_repeat" required 
+   oninput="check(this)">
+
+  <label>Company Name:</label>
+  <input type="text" id="companyName" name="companyName" placeholder= "Optional" required>
+  
+  <label>Website URL</label>
+  <input type="text" id="url" name="url" placeholder="http://" required>
+
+  <input type="submit" STYLE="color:white;" value="Become a member" /> 
+</form>
+
+<script>
+function check(input) {
+  if (input.value != document.getElementById('email_addr').value) {
+    input.setCustomValidity('The two email addresses must match.');
+  } else {
+    // input is valid -- reset the error message
+    input.setCustomValidity('');
+  }
+}
+</script>
+
+
+	<footer>If you would like to learn more:  email <a href="mailto:info@numfocus.org">info@numfocus.org</a>  for more information
+	</footer>
+
+
+</body>
+
+</html>
