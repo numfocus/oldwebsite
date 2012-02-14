@@ -309,6 +309,10 @@ input {
   border-radius:5px;
 }
 
+.textarea {
+  resize: none;
+}
+
 input[type=submit] {
   background: #3366ff;
   padding:10px;
