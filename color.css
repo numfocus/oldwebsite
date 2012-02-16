@@ -90,24 +90,15 @@ a:hover
 	text-decoration: underline;
 }
 
-#topspan_wrap
-{
-	border 1px solid red;
-/*	width: 644px;
-	margin-left: auto;
-	margin-right: auto;*/
-	text-align: center;
-	text-justify: center;
-}
-
 
 .center
 {
-	display: block;
+	
     border-style: solid;
     border-color: black;
     margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 20px;
 	text-align: center;
     border-width: 2px;
 }
@@ -115,7 +106,7 @@ a:hover
 .navlist
 {
  	list-style: none;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 
