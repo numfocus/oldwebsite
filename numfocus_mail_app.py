@@ -1,27 +1,8 @@
-# Flask is the python web micro-framework we will use.
-# If it doesn't exist on the server, then install it via "easy_install flask"
+from smtplib import *
 from flask import Flask, request, redirect, url_for
 app = Flask("NumFOCUS Web App")
 
-# This is the HTML text that will be sent out in the email to everyone.
-# Maybe we shouldn't use HTML text for these emails, since many of the
-# receipients may be on plaintext mail clients?
-confirmation_text = """
-Thank you for your submission, %s.
 
-Someone will be contacting you shortly.
-
-The NumFOCUS Team.
-"""
-
-submission_text = """
-The following submission was made at %s
-Name: %s 
-Email: %s 
-Company: %s
-URL: %s
-Message: %s
-"""
 
 # I need to register create a Continuum postmark login and get this
 # set up, and then I will give you the API key.  -- pwang
@@ -31,6 +12,10 @@ numfocus_from_addr = "info@numfocus.org"
 
 HOST = "50.56.188.141"
 PORT = 80
+MAILGUN_HOST = "smtp.mailgun.org"
+MAILGUN_PORT = 587
+MAILGUN_LOGIN = "postmaster@continuum.mailgun.org"
+MAILGUN_PASSWORD = "5b62r2nv1b79"
 
 
 @app.route('/mail', methods=["POST"])
@@ -39,36 +24,37 @@ def do_mail():
     email_addr = request.form["email"]
     full_name = request.form["full_name"]
     company_name = request.form["company_name"]
-    URL = request.form["URL"]
-    Comment = request.form["comment"]
+    url = request.form["url"]
+    comment = request.form["comment"]
 
+    s = SMTP(MAILGUN_HOST, MAILGUN_PORT)
 
-    # PostMark is an outbound email service that we will use to send 
-    # emails programmatically from things like web apps.
-    # This "postmark" module is a simple way to interface with
-    # their mail system from Python.  Grab it from:
-    #     https://github.com/themartorana/python-postmark
-    from postmark import PMMail
+    s.login(MAILGUN_LOGIN, MAILGUN_PASSWORD)
 
-    confirm_mailer = PMMail(
-                api_key = PostMarkAPIKey,
-                sender = numfocus_from_addr,
-                to = '"%s" <%s>' % (full_name, email_addr),
-                subject = "Welcome to NumFOCUS!",
-                html_body = confirmation_text % full_name
-    )
-    
-    confirm_mailer.send(test = False)
+    confirmed_msg = """From: %s
+    To: "%s" <%s>
+    Subject: NumFOCUS Donorship
 
-    submission_mailer = PMMail(
-                api_key = PostMarkAPIKey,
-                sender = numfocus_from_addr,
-                to = '%s' % info@numfocus.org,
-                subject = "New Message Received from Donor Form",
-                html_body = submission_text % ("", full_name, email, company_name, URL, comment)
-    )
-    
-    submission_mailer.send(test = False) 
+    Thank you, your message has been received and someone will respond to you shortly.
+    """ % (numfocus_from_addr, full_name, email_addr)
+
+    received_msg = """From: %s
+    To: %s
+    Subject: New Message Recieved from NumFOCUS Donorship
+
+    A new message has been received:
+
+    Name: %s 
+    Email: %s
+    URL: %s
+    Company: %s
+
+    Message: %s
+
+    """ % (numfocus_from_addr, numfocus_from_addr, full_name, email_adr, url, company_name, comment)
+
+    s.sendmail(numfocus_from_addr, email_addr, msg)
+    s.sendmail(numfocus_from_addr, numfocus_from_addr, received_msg)
 
 
 
